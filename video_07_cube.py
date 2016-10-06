@@ -46,7 +46,6 @@ def main():
     in vec3 color;
     uniform mat4 transform;
     out vec3 newColor;
-    out vec2 outTextCoord;
     void main()
     {
         gl_Position = transform * vec4(position, 1.0f);
@@ -59,10 +58,9 @@ def main():
     in vec3 newColor;
 
     out vec4 outColor;
-    uniform sampler2D samplerText;
     void main()
     {
-        outColor = texture(samplerText, outTextCoord) * vec4(newColor, 1.0f);
+        outColor = vec4(newColor, 1.0f);
     }
     """
     shader = OpenGL.GL.shaders.compileProgram(OpenGL.GL.shaders.compileShader(vertex_shader, GL_VERTEX_SHADER),
