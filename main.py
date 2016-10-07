@@ -17,10 +17,10 @@ def main():
         return
 
     glfw.make_context_current(window)
-    #           positions        colors
+    #            positions        colors
     triangle = [-0.5, -0.5, 0.0, 1.0, 0.0, 0.0,
-                0.5, -0.5, 0.0,  0.0, 1.0, 0.0,
-                0.0, 0.5, 0.0,   0.0, 0.0, 1.0]
+                 0.5, -0.5, 0.0, 0.0, 1.0, 0.0,
+                 0.0,  0.5, 0.0, 0.0, 0.0, 1.0]
 
     triangle = numpy.array(triangle, dtype = numpy.float32)
 
