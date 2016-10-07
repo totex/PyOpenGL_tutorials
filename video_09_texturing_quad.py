@@ -10,7 +10,8 @@ def main():
     # initialize glfw
     if not glfw.init():
         return
-
+    
+    #creating the window
     window = glfw.create_window(800, 600, "My OpenGL window", None, None)
 
     if not window:
