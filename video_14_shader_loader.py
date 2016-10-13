@@ -124,7 +124,6 @@ def main():
     glUniformMatrix4fv(model_loc, 1, GL_FALSE, model)
 
 
-
     while not glfw.window_should_close(window):
         glfw.poll_events()
 
