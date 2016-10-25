@@ -71,8 +71,8 @@ def main():
     #glPolygonMode(GL_FRONT_AND_BACK, GL_LINE)
 
     view = pyrr.matrix44.create_from_translation(pyrr.Vector3([0.0, 0.0, -3.0]))
-    projection = pyrr.matrix44.create_perspective_projection_matrix(85.0, w_width / w_height, 0.1, 100.0)
-    model = pyrr.matrix44.create_from_translation(pyrr.Vector3([0.0, -3.0, -2.0]))
+    projection = pyrr.matrix44.create_perspective_projection_matrix(65.0, w_width / w_height, 0.1, 100.0)
+    model = pyrr.matrix44.create_from_translation(pyrr.Vector3([0.0, 0.0, 0.0]))
 
     view_loc = glGetUniformLocation(shader, "view")
     proj_loc = glGetUniformLocation(shader, "projection")
@@ -89,11 +89,11 @@ def main():
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
-        #rot_x = pyrr.Matrix44.from_x_rotation(0.5 * glfw.get_time() )
+        rot_x = pyrr.Matrix44.from_x_rotation(0.5 * glfw.get_time() )
         rot_y = pyrr.Matrix44.from_y_rotation(0.8 * glfw.get_time() )
 
         transformLoc = glGetUniformLocation(shader, "transform")
-        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, rot_y)
+        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, rot_x * rot_y)
 
         glDrawArrays(GL_TRIANGLES, 0, len(obj.vertex_index))
 
