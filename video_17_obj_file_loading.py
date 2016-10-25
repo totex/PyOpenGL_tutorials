@@ -29,7 +29,7 @@ def main():
     glfw.set_window_size_callback(window, window_resize)
 
     obj = ObjLoader()
-    obj.load_model("res/monster/monster.obj")
+    obj.load_model("res/cube.obj")
 
     texture_offset = len(obj.vertex_index)*12
 
@@ -57,7 +57,7 @@ def main():
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR)
     # load image
-    image = Image.open("res/monster/monster.jpg")
+    image = Image.open("res/cube_texture.jpg")
     flipped_image = image.transpose(Image.FLIP_TOP_BOTTOM)
     img_data = numpy.array(list(flipped_image.getdata()), numpy.uint8)
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, image.width, image.height, 0, GL_RGB, GL_UNSIGNED_BYTE, img_data)
